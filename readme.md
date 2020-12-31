@@ -18,16 +18,11 @@ How to build AliceVision:
   sudo make install
   sudo cp -r /usr/local/include/eigen3 /usr/include 
 5. ceres 1.14.0 https://github.com/ceres-solver/ceres-solver/releases/tag/1.14.0
-  #necessary lib 
-  # CMake
+ 
+
   sudo apt-get install cmake
-  # google-glog + gflags
   sudo apt-get install libgoogle-glog-dev libgflags-dev
-  # BLAS & LAPACK
   sudo apt-get install libatlas-base-dev
-  # Eigen3
-  sudo apt-get install libeigen3-dev
-  # SuiteSparse and CXSparse (optional)
   sudo apt-get install libsuitesparse-dev
   tar zxf ceres-solver-1.14.0.tar.gz
   mkdir ceres-bin
