@@ -90,7 +90,7 @@ How to build AliceVision:
    
    cd AliceVision && mkdir build && cd build
    
-   cmake -DCMAKE_BUILD_TYPE=Release -DALICEVISION_USE_CUDA=OFF -DALICEVISION_USE_UNCERTAINTYTE=OFF.. && make -j4
+   cmake -DCMAKE_BUILD_TYPE=Release -DALICEVISION_USE_CUDA=OFF -DALICEVISION_USE_UNCERTAINTYTE=OFF.. && make -j4 (no sudo make install)
 ```
 ---
 9. QT5 > 5.13 (http://download.qt.io/archive/qt/5.13/5.13.2/)
@@ -156,8 +156,18 @@ How to build AliceVision:
  ```
  (maybe terminal complains about the python3 edition messed use /usr/bin/python3 meshroom instead)
 
-  
-  
+ Problems:
+ 1. When you met "Compiling with SSE2 enabled, but no SSE2 defined" when compiling vlfeat, find CMakeFiles
+ ```set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -msse -msse2 -msse3")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse -msse2 -msse3")
+```
+2. When you want to use CUDA in Linux, install from the official CUDA Toolkit website. When they complain about "Existing package manager installation of ..."
+```sudo apt-get purge nvidia*
+   sudo apt-get remove --purge nvidia\*
+   sudo apt-get autoremove --purge nvidia\*
+   
+   sudo sh ./cuda_10.2.<spec>.run --toolkit --silent --override
+```
   
   
   
